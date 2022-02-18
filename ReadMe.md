@@ -1,4 +1,4 @@
-# Example for Digibale
+# Example Ble Mesh OTA DFU
 ## Overview
 
 This is an example shows:
@@ -8,10 +8,10 @@ This is an example shows:
 
 
 ## Background
-From the previous discussion, we know the system architecture of the Digibale is like:
+The system architecture:
 
 *  The eartags will advertise the beacon packet
-*  Beacon scanner (central devices) will scan it and organize it, and also perform the DFU for all the eartags
+*  Beacon scanner (central devices) will scan it and organize it, and also perform the DFU for all the nodes
 *  The gateway can get those information through bluetooth mesh and also perform the DFU for all the beacon scanner
 
 In this example project, we will focus on how gateway exchanges data with beacon scanner, and also how gateway do DFU for the beacon scanner.
@@ -30,8 +30,8 @@ There are two project and one precompiled tool insided:
 *  nRFUtil for mesh
     *  A special version precompiled executable tool for packaging and distribute the DFU firmware through mesh
 
-## What kind of function can this example project do?
-In this example project, we can demonstration:
+## What can this example project do?
+In this example project, we demonstrate:
 
 *  Control the beacon scanners through serial interface
 	*  Provisioning and configuration
@@ -42,7 +42,7 @@ In this example project, we can demonstration:
 	*  Initial the DFU procedure on the serial interface
 	*  Upgrade the firmware on all the beacon scanner in “side-by-side” DFU method
 
-## Suggested study material
+## Suggested reference material
 
 1. [Quick Start Guide for the nRF5 SDK for Mesh](https://infocenter.nordicsemi.com/topic/com.nordic.infocenter.meshsdk.v2.2.0/md_doc_getting_started_getting_started.html?cp=4_1_0_1)
 2. [Basic Bluetooth Mesh concepts](https://infocenter.nordicsemi.com/index.jsp?topic=%2Fcom.nordic.infocenter.meshsdk.v2.2.0%2Fmd_doc_introduction_basic_concepts.html&cp=4_1_0_0_5) 
@@ -59,16 +59,16 @@ In this example project, we can demonstration:
 ## Install the example project
 
 1. Finish the mesh SDK setup in [here](https://infocenter.nordicsemi.com/index.jsp?topic=%2Fcom.nordic.infocenter.meshsdk.v2.2.0%2Fmd_doc_getting_started_getting_started.html&cp=4_1_0_1) 
-2. Create a directory “digibale” under nrf5_SDK_for_Mesh_v2.2.0_src\examples and clone the project repository
-3. Program one or multiple nRF52840-DK with “digibale_beacon_scanner”
-4. Program one nRF52840-DK with “digibale_serial_interface”
+2. Create a directory under nrf5_SDK_for_Mesh_v2.2.0_src\examples and clone the project repository
+3. Program one or multiple nRF52840-DK with “beacon_scanner”
+4. Program one nRF52840-DK with “serial_interface”
 
 
 ## Bluetooth Mesh demonstration
-The "Digibale beacon scanner" example is based on the "server" in the "light switch" in our mesh SDK v2.2.0 example. Please follow the instruction shows in [here](https://infocenter.nordicsemi.com/topic/com.nordic.infocenter.meshsdk.v2.2.0/md_scripts_interactive_pyaci_doc_demo_configuration.html?cp=4_1_0_3_0_2) for using the serial interface to do provision, configuration and control devices through Bluetooth mesh network.
+The "beacon scanner" example is based on the "server" in the "light switch" in our mesh SDK v2.2.0 example. Please follow the instruction shows in [here](https://infocenter.nordicsemi.com/topic/com.nordic.infocenter.meshsdk.v2.2.0/md_scripts_interactive_pyaci_doc_demo_configuration.html?cp=4_1_0_3_0_2) for using the serial interface to do provision, configuration and control devices through Bluetooth mesh network.
 
 ## DFU demonstration
-Both of the "digibale_serial_interface" and "digibale_beacon_scanner" project have been added with DFU function, which means they can been upgraded the firmware through mesh.
+Both of the "serial_interface" and "beacon_scanner" project have been added with DFU function, which means they can been upgraded the firmware through mesh.
 Please note that, this DFU feature we are using in here is a Nordic proprietary feature. It is a “side-by-side” DFU, which means during the DFU procedure, all the devices can still run the normal application, the firmware will collect every pieces of DFU packets, and jump into DFU until all the pieces are received. Also, each device can decide been DFU or not depends on the current DFU packets version.
 
 To make a project possible to run DFU, we must do the following setup
@@ -92,12 +92,12 @@ For running the entire procedure, we can reference the guide in [here](https://i
 
 1. Prepare and program the default firmware for both the beacon scanner and serial interface
 
-    *	Configure the device page in "digibale_beacon_scanner" with using 
+    *	Configure the device page in "beacon_scanner" with using 
 
     	*	"application -id = 1" 
     	*	"application-version = 1"
 
-    *	Configure the device page in "digibale_serial_interface" with using 
+    *	Configure the device page in "serial_interface" with using 
 
     	*	"application-id = 2" 
     	*	"application-version = 1"
@@ -106,12 +106,12 @@ For running the entire procedure, we can reference the guide in [here](https://i
 
 2. Prepare the DFU firmware for the beacon scanner devices
 
-    *	We can do some tiny modification on the "digibale_beacon_scanner"
+    *	We can do some tiny modification on the "beacon_scanner"
 
 3. Using the nrfutil to pack the DFU firmware
     e.g.
     ```
-    nrfutil dfu genpkg --application .\digibale_beacon_scanner_s140_6_0_0.hex --company-id 0x59 --application-id 1 --application-version 2 --key-file .\private_key.txt --sd-req 0xA9 --mesh beacon_scanner_DFU.zip 
+    nrfutil dfu genpkg --application .\beacon_scanner_s140_6_0_0.hex --company-id 0x59 --application-id 1 --application-version 2 --key-file .\private_key.txt --sd-req 0xA9 --mesh beacon_scanner_DFU.zip 
     ```
 4. Using the nrfutil to transmit the DFU firmware
     e.g.
