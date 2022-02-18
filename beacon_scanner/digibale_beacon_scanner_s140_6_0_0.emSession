@@ -1,0 +1,49 @@
+<!DOCTYPE CrossStudio_Session_File>
+<session>
+ <Bookmarks/>
+ <Breakpoints groups="Breakpoints" active_group="Breakpoints"/>
+ <ExecutionProfileWindow/>
+ <FrameBufferWindow>
+  <FrameBufferWindow bufferHeight="-1" addressSpace="" addressText="" bufferWidth="-1"/>
+ </FrameBufferWindow>
+ <Memory1/>
+ <Memory2/>
+ <Memory3/>
+ <Memory4/>
+ <Project>
+  <ProjectSessionItem path="digibale_beacon_scanner_s140_6_0_0"/>
+  <ProjectSessionItem path="digibale_beacon_scanner_s140_6_0_0;digibale_beacon_scanner_s140_6_0_0"/>
+  <ProjectSessionItem path="digibale_beacon_scanner_s140_6_0_0;digibale_beacon_scanner_s140_6_0_0;Access"/>
+  <ProjectSessionItem path="digibale_beacon_scanner_s140_6_0_0;digibale_beacon_scanner_s140_6_0_0;Application"/>
+  <ProjectSessionItem path="digibale_beacon_scanner_s140_6_0_0;digibale_beacon_scanner_s140_6_0_0;Mesh stack"/>
+  <ProjectSessionItem path="digibale_beacon_scanner_s140_6_0_0;digibale_beacon_scanner_s140_6_0_0;Simple Beacon Server"/>
+ </Project>
+ <Register1/>
+ <Register2/>
+ <Register3/>
+ <Register4/>
+ <Threads>
+  <ThreadsWindow showLists=""/>
+ </Threads>
+ <TraceWindow>
+  <Trace enabled="Yes"/>
+ </TraceWindow>
+ <Watch1>
+  <Watches active="1" update="Never"/>
+ </Watch1>
+ <Watch2>
+  <Watches active="0" update="Never"/>
+ </Watch2>
+ <Watch3>
+  <Watches active="0" update="Never"/>
+ </Watch3>
+ <Watch4>
+  <Watches active="0" update="Never"/>
+ </Watch4>
+ <Files>
+  <SessionOpenFile windowGroup="DockEditLeft" x="1" y="318" useTextEdit="1" useBinaryEdit="0" left="0" path="src/main.c" selected="1" top="295" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="151" useTextEdit="1" useBinaryEdit="0" left="0" path="simple_beacon/src/simple_beacon_server.c" selected="0" top="79" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="90" useTextEdit="1" useBinaryEdit="0" left="0" path="simple_beacon/include/simple_beacon_common.h" selected="0" top="69" codecName="Default"/>
+ </Files>
+ <ARMCrossStudioWindow activeProject="digibale_beacon_scanner_s140_6_0_0" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="Debug" debugSearchFileMap="" fileDialogInitialDirectory="C:/nrf_workspace/digibale/nrf5_SDK_for_Mesh_v2.2.0_src/examples/digibale/digibale_beacon_scanner/simple_beacon/src" debugSearchPath="" autoConnectCapabilities="3711"/>
+</session>
